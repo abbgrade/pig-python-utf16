@@ -10,9 +10,13 @@ def align_utf16(line):
 
     if len(line) % 2 == 1:
         
-        if line[0] == 0: 
+        if line[0] != chr(0): 
             line = chr(0) + line
-        else: 
+            
+        elif line[-1] == chr(0):
+            line = line[:-1]
+
+        else:
             line = line + chr(0)
     
     return line
